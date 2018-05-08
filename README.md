@@ -77,6 +77,6 @@ x + 3; // NaN
 ```
 - null vs undefined
   - null:
-    * null là empty và không tồn tại giá trị nào.
-    * null phải được gán 
+   * null là empty và không tồn tại giá trị nào.
+   * null phải được gán 
 - ákdfj
