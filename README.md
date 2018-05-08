@@ -123,20 +123,6 @@ var obj = {
 ```
 - Sử dụng typeof hoặc so sánh đối với *undefined*
   - DON'T
-```
-function (x, y) {
-  if (!x) {
-    x = 320;
-  }
-  if (!y) {
-    y = 480;
-  }
-  return {x: x, y: y};
-}
-
-point(10, 21); // {x: 10, y: 21}
-point(0, 0); // {x: 320, y: 480}
-```
   - DO
 ```
 function (x, y) {
