@@ -39,13 +39,17 @@ Ví dụ: nhiều JS hỗ trợ *const* như là một biến, tuy vậy theo ti
 ## Item 3: Cảnh giác với Implicit Coercions (Ép buộc tuyệt đối):
 - Nhiều ngôn ngữ sẽ coi expression như dưới là lỗi, tuy nhiên Javascript vẫn chạy bình thường và trả về kết quả:
 ```
-3 + true; //result is 4
+3 + true; // 4
 ```
 - Các toan tử như -, *, /, và % sẽ chuyển hết từ argument sang số trước khi tính tóan. 
 - Riêng phép + đc dùng như là phép cộng trong toan tử hoặc là kết nối chuỗi lại với nhau, phụ thuộc vào loại datatype là gì
 ```
-2 + 3; //result is 5
+2 + 3; //5
 ```
 ```
 "hello" + "world"; //result is "hello world";
 ```
+- Kết hợp số với chuỗi:
+```
+"2" + 3 //"23"
+3 + "2" //"23"
