@@ -4,9 +4,9 @@
 Ví dụ: nhiều JS hỗ trợ const như là một biến, tuy vậy theo tiêu chuẩn ECMAScript lại không hỗ trợ về syntax hay behavior nào của const cả.
 - Vì người dùng có thể sử dụng nhiều loại browser với nhiều phiên bản khác nhau nên 1 chương trình web cũng phải được viết kĩ càng để chạy được hoàn chỉnh trên nhiều browser khác nhau.
 - ES5 giới thiệu đến phiên bản ‘strict mode’. Tính năng này là để:
-* ngăn chặn sử dụng, throw errors
-* vô hiệu hóa tính năng có thể gây nhầm lẫn
-* Ngăn chặn 1 số từ có thể dùng làm keyword trong tương lai
+  * ngăn chặn sử dụng, throw errors
+  * vô hiệu hóa tính năng có thể gây nhầm lẫn
+  * Ngăn chặn 1 số từ có thể dùng làm keyword trong tương lai
 - Để dùng strict mode, đặt câu sau trên đầu mỗi program:
 ```
 “use strict” ;
@@ -22,6 +22,7 @@ Ví dụ: nhiều JS hỗ trợ const như là một biến, tuy vậy theo tiê
       //do something…
     }
  })();
+ 
 (function() {
   //file2.js
   //no strict-mode directive
