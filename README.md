@@ -155,4 +155,23 @@ point(0, 0); // {x: 0, y: 0}
 point(); // {x: 320, y: 480}
 ```
 
-## Item 4: 
+## Item 4: Sử dụng Primative value thay vì Object Wrappers
+- JS có 5 primative values:
+  - number
+  - string
+  - boolean
+  - null
+  - undefined
+
+- Chúng ta có thể tạo ra một String object wrapper bằng cách:
+```
+var s = new String("hello");
+```
+Có thể nối lại với một string khác:
+```
+s + " world" // "hello world"
+```
+Lấy kí tự dựa trên index:
+```
+s[4]; // "o"
+```
