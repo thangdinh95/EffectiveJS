@@ -15,19 +15,19 @@ Ví dụ: nhiều JS hỗ trợ const như là một biến, tuy vậy theo tiê
 - Có 1 vấn đề khi dùng strict mode đấy là khi sử dụng “use strict” ở đầu mỗi đoạn script hay function, thì nó sẽ gây ra sự nhạy cảm trong việc kết nối/ ghép các đoạn script lại với nhau. Để giải quyết vấn đề này thì tốt nhất là đừng bao giờ ghép strict files và nonstrict files dù nó cũng hạn chế việc kiểm soát cấu trúc của thư viện hoặc ứng dụng của bạn. Tốt hơn hết, là phải deploy 2 files này riêng biệt, 1 chứa strict files và cái còn lại chứ nonstrict files
 - Để giải quyết vấn đề trên, ghép các file lại bằng cách đặt body của chúng vào “immediately invoked function expressions (IIFE)” (hàm thực thi tức thời) Ví dụ:
 ```
-// (function() {
-//     //file1.js
-//     “use strict”;
-//     funtion example1() {
-//         do something…
-//     }
-// })();
-// (function() {
-//     //file2.js
-//     no strict-mode directive
-//     function example2() {
-//        var arguments = [];
-//           do somthing...
-//     }
-// })();
+(function() {
+  //file1.js
+  “use strict”;
+    funtion example1() {
+      //do something…
+    }
+ })();
+(function() {
+  //file2.js
+  //no strict-mode directive
+  function example2() {
+    var arguments = [];
+    do somthing...
+  }
+})();
 ```
