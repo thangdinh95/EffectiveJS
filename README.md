@@ -190,3 +190,4 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
   - null or undefined == mọi tham số khác null or undefined > always false
   - primitive string, number, boolean == date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng toString sau đó là valueOf)
   - primitive string, number, boolean == non-date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng valueOf sau đó là toString)
+  - Primitive string, number, or boolean == Primitive string, number, or boolean > Primitive sẽ là dạng number 
