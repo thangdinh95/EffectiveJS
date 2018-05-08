@@ -122,7 +122,7 @@ var obj = {
 "object " + obj; // "object 21"
 ```
 - Sử dụng typeof hoặc so sánh đối với *undefined*
-  - DON'T
+       - DON'T
 ```
 function (x, y) { //function này ignore mọi falsy argument trong đó có cả 0 
   if (!x) {
