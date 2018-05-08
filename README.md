@@ -41,4 +41,5 @@ Ví dụ: nhiều JS hỗ trợ *const* như là một biến, tuy vậy theo ti
 ```
 3 + true; //result is 4
 ```
-- Các
+- Các toan tử như -, *, /, và % sẽ chuyển hết từ argument sang số trước khi tính tóan. 
+- Riêng phép + duoc dung như là phép cộng trong toan tử hoặc là kết nối chuỗi lại với nhau, phụ thuộc vào 
