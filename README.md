@@ -65,4 +65,13 @@ Ví dụ: nhiều JS hỗ trợ *const* như là một biến, tuy vậy theo ti
 ```
 17 * “3”; //51
 ```
-
+- Coercion cũng có thể ẩn đi lỗi. Một biến mà là *null* sẽ ko bị fail trong toán tử, nó sẽ tự động convert ra là 0
+```
+var x = null;
+x + 3; //3
+```
+- Biến *undefined* sẽ convert ra giá trị NaN (not a number) 
+```
+var x;
+x + 3; // NaN
+```
