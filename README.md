@@ -81,11 +81,20 @@ x + 3; // NaN
     - null phải được gán 
 ```
 var x = null;
-typeof x; // null
+console.log(x); // null
 ```
   - undefined
     - một biến đã được khai báo nhưng không được định nghĩa
 ```
 var y;
-typeof y; // undefined
+console.log(y); // undefined
+```
+- Cách để check xem giá trị đó có phải là NaN hay không: Vì NaN là giá trị duy nhất của JS được xem như là không bằng chính nó, nên ta có thể test xem nó có bằng chính nó hay không. Nếu trả về true => NaN Ví dụ
+```
+var a = NaN;
+a !== a; //true;
+var b = "hello";
+b !== b; //false;
+var c = 4;
+c !== c; //false;
 ```
