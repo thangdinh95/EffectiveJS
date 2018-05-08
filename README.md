@@ -175,3 +175,14 @@ Lấy kí tự dựa trên index:
 ```
 s[4]; // "o"
 ```
+- Điều khác biệt đó là khi tạo ra một string object wrapper thì đó là một object thực sự
+```
+typeof "hello" //string
+typeof s; //object
+```
+Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nhau nên thay vì vậy hãy dùng primative string như bình thường
+
+
+## Item 5: Tránh sử dụng == với Mixed Types
+- Khi 2 tham số cùng kiểu data, thì dùng == hay === cũng không khác biệt. Nhưng sử dụng strict equality (===) là cách tốt để người đọc rõ hơn là sẽ ko có sự chuyển đổi nào nữa liên quan đến việc so sánh (từ string sang number,...)
+- 
