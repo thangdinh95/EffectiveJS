@@ -108,3 +108,16 @@ typeof Math; //object
 ```
 2 * { valueOf: function() { return 3; } }; // 6
 ```
+- Khi object chứa cả toString và valueOf, nó sẽ chọn valueOf
+```
+var obj = {
+  toString: function() {
+    return "hey";
+  },
+  valueOf: funtion() {
+    return 21;
+  }
+}
+
+"object " + obj; // "object 21"
+```
