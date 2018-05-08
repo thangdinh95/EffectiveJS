@@ -79,4 +79,12 @@ x + 3; // NaN
   - null:
     - null là empty và không tồn tại giá trị nào.
     - null phải được gán 
-- ákdfj
+    ```
+    var x = null;
+    typeof x; // null
+    ```
+  - undefined
+    - một biến đã được khai báo nhưng không được định nghĩa
+    ```
+    var y;
+    typeof y; // undefined
