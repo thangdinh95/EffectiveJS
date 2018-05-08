@@ -185,4 +185,8 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
 
 ## Item 5: Tránh sử dụng == với Mixed Types
 - Khi 2 tham số cùng kiểu data, thì dùng == hay === cũng không khác biệt. Nhưng sử dụng strict equality (===) là cách tốt để người đọc rõ hơn là sẽ ko có sự chuyển đổi nào nữa liên quan đến việc so sánh (từ string sang number,...)
-- 
+- Coercion rules cho == operator khi tham số là khác loại
+  - null == undefined > always true
+  - null or undefined == mọi tham số khác null or undefined > always false
+  - primitive string, number, boolean == date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng toString sau đó là valueOf)
+  - primitive string, number, boolean == non-date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng valueOf sau đó là toString)
