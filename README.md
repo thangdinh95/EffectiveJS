@@ -75,3 +75,6 @@ x + 3; //3
 var x;
 x + 3; // NaN
 ```
+- null vs undefined
+> null là empty và không tồn tại giá trị nào.
+null phải được gán 
