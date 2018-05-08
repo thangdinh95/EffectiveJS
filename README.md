@@ -98,3 +98,13 @@ b !== b; //false;
 var c = 4;
 c !== c; //false;
 ```
+- Objects được convert về string bằng method toString
+```
+"the Math object: " + Math; //"the Math object: [object Math]"
+"the JSON object: " + JSON; // "the JSON object: [object JSON]"
+typeof Math; //object
+```
+- Objects được convert về number bằng method valueOf
+```
+2 * { valueOf: function() { return 3; } }; // 6
+```
