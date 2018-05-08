@@ -32,3 +32,8 @@ Ví dụ: nhiều JS hỗ trợ const như là một biến, tuy vậy theo tiê
   }
 })();
 ```
+## Item 2: Tìm hiểu về số floating trong JS:
+- trong JS, chỉ có 1 kiểu số duy nhất.
+- kiểu integer trong JS chỉ là tập con của double hơn là một kiểu loại datatype riêng biệt.
+
+## Item 3: Cảnh giác với Implicit Coercions (Ép buộc tuyệt đối):
