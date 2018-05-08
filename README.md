@@ -138,7 +138,7 @@ point(10, 21); // {x: 10, y: 21}
 point(0, 0); // {x: 320, y: 480} 
 ```
 
-  - DO
+        - DO
 ```
 function (x, y) {
   if (typeof x === "undefined") {
