@@ -122,7 +122,7 @@ var obj = {
 "object " + obj; // "object 21"
 ```
 - Sử dụng typeof hoặc so sánh đối với *undefined*
-    - DON'T
+**DON'T**
 ```
 function (x, y) { //function này ignore mọi falsy argument trong đó có cả 0 
   if (!x) {
@@ -137,7 +137,7 @@ function (x, y) { //function này ignore mọi falsy argument trong đó có c�
 point(10, 21); // {x: 10, y: 21}
 point(0, 0); // {x: 320, y: 480} 
 ```
-  - DO
+**DO**
 ```
 function (x, y) {
   if (typeof x === "undefined") {
