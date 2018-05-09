@@ -41,6 +41,11 @@ Ví dụ: nhiều JS hỗ trợ *const* như là một biến, tuy vậy theo ti
 - Những loại nào có thể là đối tượng của Coercion: 
   - Primitive (number, string, boolean, null, undefined)
   - object 
+- Tại sao lại là Implicit Coercions ?
+Coercions có 2 loại: Explicit và Implicit 
+Explicit: viết rõ hẳn: Number(3) // 3
+Implicit: xảy ra khi apply giá trị với datatype khác loại. 
+
 - Nhiều ngôn ngữ sẽ coi expression như dưới là lỗi, tuy nhiên Javascript vẫn chạy bình thường và trả về kết quả:
 ```
 3 + true; // 4
