@@ -212,4 +212,10 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
   console.log(d == num) //false vì d không được convert sang number bằng valueOf
   ```
 
-## Item 6: Giới hạn của dấu chẩm phẩy
+## Item 6: Luật dấu chẩm phẩy (;)
+1. Dấu chấm phẩy được chèn vào trước }, sau 1 hoặc nhiều dòng, hoặc cuối mỗi program
+2. Không đặt dấu chẩm phẩy trong *for loop*
+3. Ta buộc phải dùng (;) giữa các lệnh gắn (bao gồm cả tính toán), lệnh gọi hàm trên cùng một dòng
+4. Khi ghép file, phải chèn (;) giữa các script
+
+## Item 7: Nghĩ đến Strings như là một dãy 16 Bit code
