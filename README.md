@@ -192,7 +192,7 @@ s[4]; // "o"
 typeof "hello" //string
 typeof s; //object
 ```
-Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nhau nên thay vì vậy hãy dùng primative string như bình thường
+Chính vì vậy mà ta **không thể so sánh nội dung trong 2 object với nhau** nên thay vì vậy hãy dùng primative string như bình thường
 
 
 ## Item 5: Tránh sử dụng == với Mixed Types
