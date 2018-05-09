@@ -198,8 +198,8 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
 ## Item 5: Tránh sử dụng == với Mixed Types
 - Khi 2 tham số cùng kiểu data, thì dùng == hay === cũng không khác biệt. Nhưng sử dụng strict equality (===) là cách tốt để người đọc rõ hơn là sẽ ko có sự chuyển đổi nào nữa liên quan đến việc so sánh (từ string sang number,...)
 - Coercion rules cho == operator khi tham số là khác loại
-  - null == undefined > không có vì nó luôn luôn đúng (always true)
-  - null or undefined == mọi tham số khác null or undefined > không có vì nó luôn luôn sai (always false)
+  - null == undefined > không có Coercions vì nó luôn luôn là true
+  - null or undefined == mọi tham số khác null or undefined > không có Coercions vì nó luôn luôn là false
   - primitive string, number, boolean == date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng toString sau đó là valueOf)
   - primitive string, number, boolean == non-date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng valueOf sau đó là toString)
   - Primitive string, number, or boolean == Primitive string, number, or boolean > Primitive sẽ là dạng number 
@@ -212,7 +212,7 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
   console.log(d == num) //false vì d không được convert sang number bằng valueOf
 ```
 
-## Item 6: Luật dấu chẩm phẩy (;)
+## Item 6: Luật dấu chẩm phẩy:
 1. Dấu chấm phẩy được chèn vào trước }, sau 1 hoặc nhiều dòng, hoặc cuối mỗi program
 2. Không đặt dấu chẩm phẩy trong *for loop*
 3. Ta buộc phải dùng (;) giữa các lệnh gắn (bao gồm cả tính toán), lệnh gọi hàm trên cùng một dòng
