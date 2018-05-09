@@ -203,5 +203,13 @@ Chính vì vậy mà ta không thể so sánh nội dung trong 2 object với nh
   - primitive string, number, boolean == date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng toString sau đó là valueOf)
   - primitive string, number, boolean == non-date object > primitive sẽ là dạng number, Date object sẽ là dạng object (convert bằng valueOf sau đó là toString)
   - Primitive string, number, or boolean == Primitive string, number, or boolean > Primitive sẽ là dạng number 
+  ```
+  var d = new Date()
+  var str = d.toString(); // "Wed May 09 2018 10:26:52 GMT+0700 (+07)"
+  var num = d.valueOf(); // 1525836412668
+  
+  console.log(d == str) //true vì d được convert sang string 
+  console.log(d == num) //false vì d không được convert sang number bằng valueOf
+  ```
 
 ## Item 6: Giới hạn của dấu chẩm phẩy
