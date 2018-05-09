@@ -37,6 +37,10 @@ Ví dụ: nhiều JS hỗ trợ *const* như là một biến, tuy vậy theo ti
 - kiểu integer trong JS chỉ là tập con của double hơn là một kiểu loại datatype riêng biệt.
 
 ## Item 3: Cảnh giác với Implicit Coercions (Ép buộc tuyệt đối):
+- Coercion có nghĩa là gì: là quá trình chuyển đổi từ datatype này sang datatype khác. Ví dụ từ string > number, object > boolean,... 
+- Những loại nào có thể là đối tượng của Coercion: 
+  - Primitive (number, string, boolean, null, undefined)
+  - object 
 - Nhiều ngôn ngữ sẽ coi expression như dưới là lỗi, tuy nhiên Javascript vẫn chạy bình thường và trả về kết quả:
 ```
 3 + true; // 4
