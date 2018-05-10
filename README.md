@@ -307,9 +307,16 @@ function plus(x,y) {
   return (x + y) - 4;
 }
 z; //4
+
 function plus(x,y) {
   var z = 4; //local variable
   return (x + y) - 4;
 }
 z; //z is not defined 
 ```
+
+- Tạo ra global variable một cách cố ý là một cách làm không hay, tuy nhiên việc tạo ra global variable một cách tình cờ là một thảm họa. Chính vì điều này, nhiều lập trình viên sử dụng *lint* tool để tìm ra những style không tốt hoặc những bugs có thể gặp phải. 
+
+## Item 10: Tránh *with*
+
+## Item 11
