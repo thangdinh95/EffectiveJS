@@ -222,6 +222,50 @@ Chính vì vậy mà ta **không thể so sánh nội dung trong 2 object với 
 
 # Chap 2: Variable Scope
 ## Item 8: Giảm việc sử dụng Global Object
-- Việc định nghĩa một *global variables* sẽ làm ảnh hưởng đến vùng đặt tên chung mà được đặt bởi mọi người trong cùng dự án, dẫn đến việc bị xung đột tên biến,... Globals sẽ đi trái ngược lại với tiêu chí modular.  Chúng sẽ dẫn đến việc gom các components riêng rẽ một cách không cần thiết trong 1 program. Nó có thể thuận tiện ban đầu để 'cứ code đã, lát tổ chức lại sau' tuy nhiên 1 lập trình viên giỏi sẽ phải luôn thường trực để ý đến cấu trúc của chương trình, luôn liên tục nhóm những function liên quan lại và tách những components không liên quan ra như là một phần trong khâu xử lý program.
+- Việc định nghĩa một *global variables* sẽ làm ảnh hưởng đến vùng đặt tên chung mà được đặt bởi mọi người trong cùng dự án, dẫn đến việc bị xung đột tên biến,... Globals sẽ đi trái ngược lại với tiêu chí modular.  Chúng sẽ dẫn đến việc gom các components riêng rẽ một cách không cần thiết trong 1 program. 
+
+Nó có thể thuận tiện ban đầu để 'cứ code đã, lát tổ chức lại sau' tuy nhiên 1 lập trình viên giỏi sẽ phải luôn thường trực để ý đến cấu trúc của chương trình, luôn liên tục nhóm những function liên quan lại và tách những components không liên quan ra như là một phần trong khâu xử lý program.
 
 - Nhưng vì global là cách duy nhất để tách các components của một chương trình JS, nên việc dùng nó là không tránh khỏi. Một component hoặc thư viện phải định nghĩa một global name để các phần khác trong code có thể sử dụng nó. Nếu không, thì tốt nhất là để local variables. 
+
+- Nó dĩ nhiên là có thể viết 1 chương trình mà chả cần gì ngoài glabal var, nhưng nó lại nảy sinh ra nhiều vấn đề:
+```
+var i, n, sum; //globals
+function averageScore(players) {
+sum = 0;
+for (i = 0, n = players.length; i < n; i++) {
+        sum += score(players[i]);
+    }
+return sum / n; }
+
+```
+
+averageScore sẽ không làm việc nếu function score có các biến khác với averageScore
+```
+var i, n, sum; //same globals as averageScore
+function averageScore(players) {
+sum = 0;
+for (i = 0, n = players.length; i < n; i++) {
+        sum += score(players[i]);
+    }
+return sum / n; }
+
+```
+Để giải quyết vấn đề này thì ta nên đặt biến này bên trong function cần nó:
+```
+function averageScore(players) { var i, n, sum;
+sum = 0;
+for (i = 0, n = players.length; i < n; i++) {
+        sum += score(players[i]);
+    }
+return sum / n; 
+}
+
+function score(player) { var i, n, sum;
+sum = 0;
+for (i = 0, n = player.levels.length; i < n; i++) {
+        sum += player.levels[i].score;
+    }
+return sum; 
+}
+```
