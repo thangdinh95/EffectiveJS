@@ -244,28 +244,30 @@ averageScore sẽ không làm việc nếu function score có các biến khác 
 ```
 var i, n, sum; //same globals as averageScore
 function averageScore(players) {
-sum = 0;
-for (i = 0, n = players.length; i < n; i++) {
-        sum += score(players[i]);
+    sum = 0;
+    for (i = 0, n = players.length; i < n; i++) {
+            sum += score(players[i]);
     }
-return sum / n; }
-
+    return sum / n; 
+ }
 ```
 Để giải quyết vấn đề này thì ta nên đặt biến này bên trong function cần nó:
 ```
-function averageScore(players) { var i, n, sum;
-sum = 0;
-for (i = 0, n = players.length; i < n; i++) {
+function averageScore(players) { 
+   var i, n, sum;
+   sum = 0;
+   for (i = 0, n = players.length; i < n; i++) {
         sum += score(players[i]);
-    }
-return sum / n; 
+   }
+   return sum / n; 
 }
 
-function score(player) { var i, n, sum;
-sum = 0;
-for (i = 0, n = player.levels.length; i < n; i++) {
-        sum += player.levels[i].score;
-    }
-return sum; 
+function score(player) { 
+   var i, n, sum;
+   sum = 0;
+   for (i = 0, n = player.levels.length; i < n; i++) {
+           sum += player.levels[i].score;
+       }
+   return sum; 
 }
 ```
