@@ -271,3 +271,5 @@ function score(player) {
    return sum; 
 }
 ```
+
+- JS's vùng tên biến global thì cũng được biết đến là global object, cái mà có thể truy cập
