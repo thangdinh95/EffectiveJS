@@ -222,7 +222,7 @@ Chính vì vậy mà ta **không thể so sánh nội dung trong 2 object với 
 
 # Chap 2: Variable Scope
 ## Item 8: Giảm việc sử dụng Global Object
-- Namespace là gì: namespace có thể hiểu đơn giản là vùng khai báo phạm vi. 
+- **Namespace** là gì: namespace có thể hiểu đơn giản là vùng khai báo phạm vi. 
 ```
 var foo = {};
     foo.name = "Effective JS";
