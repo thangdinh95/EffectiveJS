@@ -233,11 +233,11 @@ var foo = {};
 
 - Việc định nghĩa một *global variables* sẽ làm ảnh hưởng đến namespace chung mà được đặt bởi mọi người trong cùng dự án, dẫn đến việc bị xung đột tên biến,... Globals sẽ đi trái ngược lại với tiêu chí modular.  Chúng sẽ dẫn đến việc gom các components riêng rẽ một cách không cần thiết trong 1 program. 
 
-Nó có thể thuận tiện ban đầu để 'cứ code đã, lát tổ chức lại sau' tuy nhiên 1 lập trình viên giỏi sẽ phải luôn thường trực để ý đến cấu trúc của chương trình, luôn liên tục nhóm những function liên quan lại và tách những components không liên quan ra như là một phần trong khâu xử lý program.
+Nó có thể thuận tiện ban đầu, 'cứ code đã, lát tổ chức lại sau' tuy nhiên 1 lập trình viên giỏi sẽ phải luôn thường trực để ý đến cấu trúc của chương trình, luôn liên tục nhóm những function liên quan lại và tách những components không liên quan ra như là một phần trong khâu xử lý program.
 
 - Nhưng vì global là cách duy nhất để tách các components của một chương trình JS, nên việc dùng nó là không tránh khỏi. Một component hoặc thư viện phải định nghĩa một global name để các phần khác trong code có thể sử dụng nó. Nếu không, thì tốt nhất là để local variables. 
 
-- Nó dĩ nhiên là có thể viết 1 chương trình mà chả cần gì ngoài glabal var, nhưng nó lại nảy sinh ra nhiều vấn đề:
+- Dĩ nhiên là có thể viết 1 chương trình mà chả cần gì ngoài glabal var, nhưng nó lại nảy sinh ra nhiều vấn đề:
 ```
 var i, n, sum; //globals
 function averageScore(players) {
@@ -297,3 +297,19 @@ str.greeting = "hello";
 ```
 
 Cả 2 đều có thể sử dụng được, tuy nhiên khai báo var sẽ làm rõ hơn chuyển tải ý nghĩa của một scope.
+
+## Item 9: Luôn luôn khai báo local variable:
+
+- Thay vì báo lỗi thì một chương trình mà gán cho một biến mà nó không liên kết chặt chẽ sẽ dẫn đến việc JS tự gán nó là một global variable mới. 
+```
+function plus(x,y) {
+  z = 4; //global variable
+  return (x + y) - 4;
+}
+z; //4
+function plus(x,y) {
+  var z = 4; //local variable
+  return (x + y) - 4;
+}
+z; //z is not defined 
+```
