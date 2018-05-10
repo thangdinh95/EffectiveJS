@@ -222,7 +222,7 @@ Chính vì vậy mà ta **không thể so sánh nội dung trong 2 object với 
 
 # Chap 2: Variable Scope
 ## Item 8: Giảm việc sử dụng Global Object
-- Việc định nghĩa một *global variables* sẽ làm ảnh hưởng đến vùng đặt tên chung mà được đặt bởi mọi người trong cùng dự án, dẫn đến việc bị xung đột tên biến,... Globals sẽ đi trái ngược lại với tiêu chí modular.  Chúng sẽ dẫn đến việc gom các components riêng rẽ một cách không cần thiết trong 1 program. 
+- Việc định nghĩa một *global variables* sẽ làm ảnh hưởng đến namespace chung mà được đặt bởi mọi người trong cùng dự án, dẫn đến việc bị xung đột tên biến,... Globals sẽ đi trái ngược lại với tiêu chí modular.  Chúng sẽ dẫn đến việc gom các components riêng rẽ một cách không cần thiết trong 1 program. 
 
 Nó có thể thuận tiện ban đầu để 'cứ code đã, lát tổ chức lại sau' tuy nhiên 1 lập trình viên giỏi sẽ phải luôn thường trực để ý đến cấu trúc của chương trình, luôn liên tục nhóm những function liên quan lại và tách những components không liên quan ra như là một phần trong khâu xử lý program.
 
@@ -272,4 +272,4 @@ function score(player) {
 }
 ```
 
-- JS's vùng tên biến global thì cũng được biết đến là global object, cái mà có thể truy cập
+- JS's global namespace thì cũng được biết đến là global object, cái mà có thể truy cập
