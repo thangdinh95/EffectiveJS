@@ -284,13 +284,16 @@ function score(player) {
 - JS's global namespace thì cũng được biết đến là global object, cái mà có thể truy cập ở đầu mỗi chương trình như là giá trị ban đầu của từ khóa *'this'*. Global object còn có thể kể đến biến *window*. 
 
 - Có 2 kĩ thuật để tạo ra global variable: 
-  
-  1. global scope: tạo bằng var
+
+Global scope: tạo bằng var
 ```
 var str = "hello"; // global scope
 ```
-  2. global object:
+
+Global object:
 ```
 var str = {};
 str.greeting = "hello";
 ```
+
+Cả 2 đều có thể sử dụng được, tuy nhiên khai báo var sẽ làm rõ hơn chuyển tải ý nghĩa của một scope.
