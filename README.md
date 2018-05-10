@@ -222,7 +222,7 @@ Chính vì vậy mà ta **không thể so sánh nội dung trong 2 object với 
 
 # Chap 2: Variable Scope
 ## Item 8: Giảm việc sử dụng Global Object
-- **Namespace** là gì: namespace có thể hiểu đơn giản là vùng khai báo phạm vi. 
+- **Namespace** là gì: namespace có thể hiểu đơn giản là vùng khai báo phạm vi. Ví dụ
 ```
 var foo = {};
     foo.name = "Effective JS";
@@ -281,4 +281,15 @@ function score(player) {
 }
 ```
 
-- JS's global namespace thì cũng được biết đến là global object, cái mà có thể truy cập
+- JS's global namespace thì cũng được biết đến là global object, cái mà có thể truy cập ở đầu mỗi chương trình như là giá trị ban đầu của từ khóa *'this'*. Global object còn có thể kể đến biến *window*. 
+
+- Có 2 kĩ thuật để tạo ra global variable: 
+  - global scope: tạo bằng var
+```
+var str = "hello"; // global scope
+```
+  - global object:
+```
+var str = {};
+str.greeting = "hello";
+```
