@@ -322,30 +322,35 @@ z; //z is not defined
 ## Item 11: Làm quen với Closures
 - Có 3 điều cần phải biết khi nhắc đến Closures:
 
-1. JS cho phép gọi đến *var* mà nó được định nghĩa bên ngoài function hiện tại
+1. JS cho phép gọi đến *variable* mà nó được định nghĩa bên ngoài function hiện tại
 ```
 function isHandsome() {
   var handsome = "handsome"; 
   function person(name) {
-    return name + " is so " + handsome; 
-  }
+    return name + " is so " + handsome; //handsome là var bên ngoài function person()
+  }
   return person("Thang"); 
 }
 isHandsome(); // "Thang is so handsome"
 ```
 
-2. Function có thể gọi đến *var* được định nghĩa ở function bên ngoài của những function bên ngoài nữa.
-Điều này có nghĩa là ta có thể trả về một function bên ngoài một lát sau.
+2. Function có thể gọi đến *var* được định nghĩa ở function bên ngoài (outer function) của những function bên ngoài nữa.
+- Điều này có nghĩa là ta có thể trả về một function bên ngoài.
 ```
 function isHandsome() {
   var handsome = "handsome"; 
   function person(name) {
-    return name + " is so " + handsome; 
+    return name + " is so " + handsome;
   }
 return person
 }
 var who = isHandsome();
 who("Thang"); //"Thang is so handsome"
+who("Bach"); //"Bach is so handsome"
+who("Nam"); //"Nam is so handsome"
 ```
+
+- Có thể thấy, thay vì gọi hàm person("Thang") ở bên trong outer function, thì function isHandsome tự return person. 
+Vì thế mà giá trị who 
 
 3. 
