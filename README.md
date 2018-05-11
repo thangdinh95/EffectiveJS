@@ -329,14 +329,23 @@ function isHandsome() {
   function person(name) {
     return name + " is so " + handsome; 
   }
-  return person("Nam"); 
+  return person("Thang"); 
 }
-isHandsome(); // "Nam is so handsome"
+isHandsome(); // "Thang is so handsome"
 ```
 
 2. Function có thể gọi đến *var* được định nghĩa ở function bên ngoài của những function bên ngoài nữa.
+Điều này có nghĩa là ta có thể trả về một function bên ngoài một lát sau.
 ```
-
+function isHandsome() {
+  var handsome = "handsome"; 
+  function person(name) {
+    return name + " is so " + handsome; 
+  }
+return person
+}
+var who = isHandsome();
+who("Thang"); //"Thang is so handsome"
 ```
 
 3. 
