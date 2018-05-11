@@ -319,4 +319,24 @@ z; //z is not defined
 
 ## Item 10: Tránh *with*
 
-## Item 11
+## Item 11: Làm quen với Closures
+- Có 3 điều cần phải biết khi nhắc đến Closures:
+
+1. JS cho phép gọi đến *var* mà nó được định nghĩa bên ngoài function hiện tại
+```
+function isHandsome() {
+  var handsome = "handsome"; 
+  function person(name) {
+    return name + " is so " + handsome; 
+  }
+  return person("Nam"); 
+}
+isHandsome(); // "Nam is so handsome"
+```
+
+2. Function có thể gọi đến *var* được định nghĩa ở function bên ngoài của những function bên ngoài nữa.
+```
+
+```
+
+3. 
