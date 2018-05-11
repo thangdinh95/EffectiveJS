@@ -320,7 +320,7 @@ z; //z is not defined
 ## Item 10: Tránh *with*
 
 ## Item 11: Làm quen với Closures
-- Có 3 điều cần phải biết khi nhắc đến Closures:
+Có 3 điều cần phải biết khi nhắc đến Closures:
 
 1. JS cho phép gọi đến *variable* mà nó được định nghĩa bên ngoài function hiện tại
 ```
