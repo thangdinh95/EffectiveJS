@@ -320,7 +320,9 @@ z; //z is not defined
 ## Item 10: Tránh *with*
 
 ## Item 11: Làm quen với Closures
-Có 3 điều cần phải biết khi nhắc đến Closures:
+- Một closure là một inner function (hàm khai báo bên trong một hàm khác), nó có thể truy cập tới các biến của outer function (hàm chứa inner function) - scope chain.
+
+- Có 3 điều cần phải biết khi nhắc đến Closures:
 
 1. JS cho phép gọi đến *variable* mà nó được định nghĩa bên ngoài function hiện tại
 ```
@@ -349,8 +351,39 @@ who("Thang"); //"Thang is so handsome"
 who("Bach"); //"Bach is so handsome"
 who("Nam"); //"Nam is so handsome"
 ```
+Cũng như function ở trên, dưới đây sẽ tạo ra 2 function riêng biệt, 
+```
+function isHandsome(howHandsome) {
+  function person(name) {
+    return name + " is so " + howHandsome;
+  }
+return person;
+}
+var person1 = isHandsome("super handsome");
+person1("Nam"); //Nam is so super handsome
+var person2 = isHandsome("super super handsome!");
+person2("Nghia"); //Nghia is so super super handsome!
+```
 
 - Có thể thấy, thay vì gọi hàm person("Thang") ở bên trong outer function, thì function isHandsome tự return person. 
 Vì thế mà giá trị who 
 
-3. 
+3. Closure có thể update giá trị của outer variable (truy cập đến các biến global). 
+Closure lưu trữ *references* đến những outer variables thay vì là copy nó. 
+```
+function box() {
+   var val = undefined; 
+   return {
+      set: function(newVal) { val = newVal; }, 
+      get: function() { return val; },
+      type: function() { return typeof val; }
+   }; 
+}
+
+var b = box();
+b.type(); // "undefined" 
+b.set(98.6);
+b.get(); // 98.6 
+b.type(); // "number"
+```
+## Item 12: Variable Hoisting
