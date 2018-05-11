@@ -324,9 +324,9 @@ Có 3 điều cần phải biết khi nhắc đến Closures:
 
 1. JS cho phép gọi đến *variable* mà nó được định nghĩa bên ngoài function hiện tại
 ```
-function isHandsome() {
+function isHandsome() {                 //outer function
   var handsome = "handsome"; 
-  function person(name) {
+  function person(name) {               //innder function
     return name + " is so " + handsome; //handsome là var bên ngoài function person()
   }
   return person("Thang"); 
