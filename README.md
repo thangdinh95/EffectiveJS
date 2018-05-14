@@ -409,3 +409,31 @@ yourname(); //your name is undefined
 ```
 
 ## Item 13: Sử dụng Immediately Invoked Function Expressions (hàm thực thi tức thời) để tạo ra Local Scopes
+- Hãy nhìn vào ví dụ dưới đây:
+```
+function wrapElements(a) {
+   var result = [], i, n;
+   for (i = 0, n = a.length; i < n; i++) {
+      result[i] = function() { return a[i]; }; 
+   }
+   return result; }
+var wrapped = wrapElements([10, 20, 30, 40, 50]); 
+var f = wrapped[0];
+f(); // undefined
+```
+Kết quả sẽ trả về là undefined.
+
+- Để giải quyết vấn đề thì cần tạo một local scope bằng cách tạo 1 function nằm bên trong và gọi nó:
+```
+function wrapElements(a) {
+   var result = [];
+   for (var i = 0, n = a.length; i < n; i++) {
+       (function(j) {
+          result[i] = function() { return a[j]; };
+       })(i); 
+    }
+    return result; 
+}
+```
+
+## Item 14: 
