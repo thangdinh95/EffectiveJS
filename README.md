@@ -387,3 +387,25 @@ b.get(); // 98.6
 b.type(); // "number"
 ```
 ## Item 12: Variable Hoisting
+- Chúng ta nên hiểu khai báo biến trong JS theo 2 hướng: khai báo và gán. JS sẽ *"hoist"* (kéo) phần khai báo lên đầu mỗi
+function bao quanh nó. Điều này có nghĩa là, Hoisting là vấn đề liên quan đến cách khai báo biến trong Javascript. Nó liên quan đến việc trong Javascript bạn có thể sử dụng một biến mà không cần phải định nghĩa trước, vì vậy để chương trình chạy chuẩn thì bạn phải khai báo biến trước khi sử dụng và đặt nó phía trên cùng phạm vi của biến.
+
+- Lưu ý
+```
+function yourname() {
+    return "your name is " + x;
+	   var x = "Thang"; 
+}
+yourname(); //your name is undefined
+```
+Kết quả trả về sẽ là *undefined* vì JS sẽ chỉ hoist phần khai báo var x lên đầu:
+```
+function yourname() {
+    var x
+    return "your name is " + x; // vì x chưa được gán giá trị nên trả về là undefined
+	   x = "Thang"; 
+}
+yourname(); //your name is undefined
+```
+
+## Item 13: Sử dụng Immediately Invoked Function Expressions (hàm thực thi tức thời) để tạo ra Local Scopes
