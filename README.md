@@ -351,6 +351,9 @@ who("Thang"); //"Thang is so handsome"
 who("Bach"); //"Bach is so handsome"
 who("Nam"); //"Nam is so handsome"
 ```
+- Có thể thấy, thay vì gọi hàm person("Thang") ở bên trong outer function, thì function isHandsome tự return person. 
+Vì thế mà giá trị *who* ở bên trong function *person*, và việc gọi *who* cũng sẽ gọi đến *person*. Và mặc dù function *isHandsome* đã return nhưng mà person vẫn có thể nhớ được biến *handsome*
+
 Cũng như function ở trên, dưới đây sẽ tạo ra 2 function riêng biệt, 
 ```
 function isHandsome(howHandsome) {
@@ -364,9 +367,6 @@ person1("Nam"); //Nam is so super handsome
 var person2 = isHandsome("super super handsome!");
 person2("Nghia"); //Nghia is so super super handsome!
 ```
-
-- Có thể thấy, thay vì gọi hàm person("Thang") ở bên trong outer function, thì function isHandsome tự return person. 
-Vì thế mà giá trị who 
 
 3. Closure có thể update giá trị của outer variable (truy cập đến các biến global). 
 Closure lưu trữ *references* đến những outer variables thay vì là copy nó. 
