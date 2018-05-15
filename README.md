@@ -440,19 +440,34 @@ function wrapElements(a) {
 
 - Function expresstion có 2 loại đó là Named function expresstion (function expression có tên) và Anonymous function expresstion (function expression không tên)
 
-Named function expresstion
+Named function expresstion (NFE)
 ```
 var x = function hello(name) { //function hello
    return "hello " + name;
 }
 ```
 
-Anonymous function expresstion
+Anonymous function expresstion (AFE)
 ```
 var x = function(name) { //function không có tên
    return "hello " + name;
 }
 ```
+
+Về các hoạt động giữa NFE và AFE hoàn toàn giống nhau. Khác biệt duy nhất đó là NFE sẽ bind tên của nó như là một local varible nằm trong function
+```
+var f = function find(tree, key) { 
+    if (!tree) {
+        return null; 
+    }
+    if (tree.key === key) { 
+        return tree.value;
+    }
+    return find(tree.left, key) ||
+           find(tree.right, key); // local var
+};
+```
+
 - Vậy sự khác nhau giữa function declaration (FD) và function expresstion (FE) là gì
 
 Function declaration hiểu đơn giản là khai báo một function. Và chúng ta có thể gọi nó bất cứ lúc nào. Quay lại ví dụ trên thì FD sẽ được viết như sau:
