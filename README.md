@@ -488,3 +488,37 @@ var f = function hello(name) {
 hello("thang") // ReferenceError: hello is undefined;
 ```
 
+Tuy nhiên đối với resursion (việc sử dụng lại) thì dùng NFE chưa hẳn là hữu ích
+
+```
+var f = function find(tree, key) { 
+    if (!tree) {
+        return null; 
+    }
+    if (tree.key === key) { 
+        return tree.value;
+    }
+    return f(tree.left, key) ||
+           f(tree.right, key); // không cần phải gọi đến find() mà chỉ cần gọi đến outer scope's name
+};
+```
+
+hoặc
+
+```
+function find(tree, key) { 
+    if (!tree) {
+        return null; 
+    }
+    if (tree.key === key) { 
+        return tree.value;
+    }
+    return find(tree.left, key) ||
+           find(tree.right, key); 
+};
+
+var f = find;
+```
+
+## Item 15: Block-local function declarations
+
