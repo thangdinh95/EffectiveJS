@@ -520,5 +520,65 @@ function find(tree, key) {
 var f = find;
 ```
 
-## Item 15: Block-local function declarations
+## Item 15: Cảnh giác với unport scope trong Block-local function declarations
 
+- Không có chuẩn mực nào cho việc khai báo một function bên trong một local block. 
+
+Nó là chuẩn khi nest một khai báo function nằm trên cùng một function khác.
+```
+function f() { return "global"; } 
+
+function test(x) {
+    function f() { return "local"; }
+    var result = []; 
+    if (x) {
+        result.push(f());
+    }
+    result.push(f());
+    return result; 
+}
+test(true); // ["local", "local"] 
+test(false); // ["local"]
+```
+
+- Nhưng nó hoàn toàn là một câu chuyện khác nếu chúng ta chuyển *f* vào local block:
+
+```
+function f() { return "global"; }
+
+function test(x) { 
+    var result = [];
+    if (x) {
+        function f() { return "local"; } // block-local
+        result.push(f());
+    }
+    result.push(f());
+    return result; 
+
+}
+test(true); // ? 
+test(false); // ?
+```
+
+Kết quả sẽ không trả về *["local", "global"]* và *["global"]*. 
+
+Cách tốt nhất là cần viết portable function để tránh đặt khai báo biến vào local block như trên. 
+
+```
+function f() { return "global"; }
+
+function test(x) {
+   var g = f, result = []; 
+   if (x) {
+       g = function() { return "local"; } 
+       result.push(g());
+   } 
+   result.push(g()); 
+   return result;
+}
+
+test(true); // ["local", "local"] 
+test(false); // ["local"]
+```
+
+## Item 16: Tránh tạo local variables với *eval*
