@@ -436,4 +436,40 @@ function wrapElements(a) {
 }
 ```
 
-## Item 14: 
+## Item 14: Named function expressions
+
+- Function expresstion có 2 loại đó là Named function expresstion (function expression có tên) và Anonymous function expresstion (function expression không tên)
+
+Named function expresstion
+```
+var x = function hello(name) { //function hello
+   return "hello " + name;
+}
+```
+
+Anonymous function expresstion
+```
+var x = function(name) { //function không có tên
+   return "hello " + name;
+}
+```
+- Vậy sự khác nhau giữa function declaration (FD) và function expresstion (FE) là gì
+
+Function declaration hiểu đơn giản là khai báo một function. Và chúng ta có thể gọi nó bất cứ lúc nào. Quay lại ví dụ trên thì FD sẽ được viết như sau:
+```
+function hello(name) {
+   return "hello " + name;
+}
+
+hello("thang") // "hello thang"
+```
+
+Nhưng với một function expresstion thì ta ko thể gọi nó bên ngoài scope cha
+```
+var f = function hello(name) {
+   return "hello " + name;
+}
+
+hello("thang") // ReferenceError: hello is undefined;
+```
+
