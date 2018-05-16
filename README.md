@@ -625,7 +625,8 @@ test("var z = 'local';"); // "global"
 
 Đó là vì code lúc này sẽ không an toàn: nó cho phép các phép gọi bên ngoài(*test("var y = 'local';");*) được quyền thay đổi scope bên trong function test.
 
-- Cách đơn giản để đảm bảo rằng *eval* sẽ không ảnh hưởng đến outer scope đó là sử dụng IIFE :
+- Cách đơn giản để đảm bảo rằng *eval* sẽ không ảnh hưởng đến outer scope đó là sử dụng IIFE - chạy eval bên trong nested scope :
+
 ```
 var y = "global"; 
 function test(src) {
