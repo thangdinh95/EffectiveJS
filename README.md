@@ -638,4 +638,7 @@ test("var y = 'local';"); // "global"
 test("var z = 'local';"); // "global"
 ```
 
-
+## Item 17: indirect eval vs direct eval
+`
+df;lgkdf
+`
