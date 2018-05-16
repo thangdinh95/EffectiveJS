@@ -582,3 +582,59 @@ test(false); // ["local"]
 ```
 
 ## Item 16: Tránh tạo local variables với *eval*
+- Xem xét ví dụ dưới đây
+
+```
+function text(x) {
+   eval("var y = global;"); //dynamic binding
+   return y;
+}
+
+test("hello") //"hello"
+```
+
+Khai báo var (ở ví dụ trên chính là 'var y = global;') chỉ được thực thi khi hàm *eval* được gọi.
+
+- Đặt *eval* vào điều kiện if khiến cho các biến chạy chỉ khi điều kiện if xảy ra:
+
+```
+var y = "local";
+function text(x) {
+   if (x) {
+       eval("var y = global;");
+   }
+   return y;
+}
+
+test("true") //"global"
+test("false") //"local"
+```
+
+- Tuy nhiên khi đặt thuộc tính động (hàm ý nghĩa là có thể thay đổi được, không cố định) thì luôn là một ý tưởng tồi. 
+
+```
+var y = "global"; 
+function test(src) {
+   eval(src); // may dynamically bind
+   return y; 
+}
+
+test("var y = 'local';"); // "local" 
+test("var z = 'local';"); // "global"
+```
+
+Đó là vì code lúc này sẽ không an toàn: nó cho phép các phép gọi bên ngoài(*test("var y = 'local';");*) được quyền thay đổi scope bên trong function test.
+
+- Cách đơn giản để đảm bảo rằng *eval* sẽ không ảnh hưởng đến outer scope đó là sử dụng IIFE :
+```
+var y = "global"; 
+function test(src) {
+    (function() { eval(src); })();
+    return y; 
+}
+
+test("var y = 'local';"); // "global" 
+test("var z = 'local';"); // "global"
+```
+
+
