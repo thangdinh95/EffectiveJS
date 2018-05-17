@@ -663,3 +663,50 @@ function test() {
 
 test(); // "global"
 ```
+
+# Chaper 3: Function
+## Item 18: Sự khác nhau giữa Function, Method, và Constructor:
+
+- Function:
+```
+function sayHi (name) {
+    return "Hi, " + name;
+}
+
+sayHi(Thang); // "Hi, Thang"
+```
+
+- Method: Method là dạng function nằm trong 1 object
+```
+var singer = {
+    name: "Beyonce",
+    sayHi: function() {             //method
+       return "Hi, " + singer.name;
+    }
+}
+
+singer.sayHi() // "Hi, Beyonce"
+```
+
+Ngoài ra khi sử dụng method, nó có thể gọi đến một function bên ngoài và sử dụng thuộc tính trong object đó:
+
+```
+function sayHi() {
+    return "Hi, " + this.name;
+}
+
+var singer = {
+    name: "Beyonce",
+    hello: sayHi     //method giống chức năng như function sayHi
+}
+
+var rapper = {
+    name: "CL",
+    hello: sayHi     //method giống chức năng như function sayHi
+}
+
+singer.hello(); // "Hi, Beyonce"
+rapper.hello(); // "Hi, CL"
+```
+
+- Constructor: 
