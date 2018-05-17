@@ -776,3 +776,5 @@ upper; // ["THANG", "HAI", "HUNG"]
 ```
 
 ## Item 20: Sử dụng *call* để gọi đến methods với custom receiver
+
+alskdf
