@@ -710,3 +710,69 @@ rapper.hello(); // "Hi, CL"
 ```
 
 - Constructor: 
+
+```
+function User(name, password) { 
+         this.name = name; 
+	 this.password = password;
+}
+```
+
+Gọi một User với các parameters mới thì nó được xem như *consttructor*
+
+```
+var u = new User ("Thang", "1234qwe");
+u.name; //"Thang"
+u.password; //"1234qwe"
+```
+
+## Item 19: Higher-Order Functions
+
+- Higher-order functions là gì: đó là 1 function mà lấy functions khác làm arguments (còn gọi là callback function) hoặc trả về kết quả là một function.
+
+Higher-order function có thể giúp code đơn giản hơn.
+
+Với loop ta có thể viết
+```
+var names = ["Fred", "Wilma", "Pebbles"];
+var upper = [];
+for (var i = 0, n = names.length; i < n; i++) {
+    upper[i] = names[i].toUpperCase();
+}
+upper; // ["FRED", "WILMA", "PEBBLES"]
+```
+
+Nhưng mình cũng có thể bỏ loop mà chỉ implement từng element:
+```
+var names = ["Fred" ,"Wilma" ,"Pebbles"];
+var upper = names.map(function(name)){
+    return name.toUpperCase();
+});
+
+upper; // ["FRED", "WILMA", "PEBBLES"]
+```
+
+- Higher-order chính là ý tưởng đã tạo nên các hàm thông dụng như apply, map, hay filter và tận dụng nó chính là một cách tuyệt vời để chúng ta áp dụng được các nguyên lý DRY - sử dụng tối đa các hàm sẵn có trong một context mới.
+
+Ta có thể viết hàm chuyển đổi từ lower case > uppder case như sau:
+```
+var names = ["thang", "hai", "hung"];
+var upper = [];
+for (var i = 0, n = names.length; i< n; i++) {
+    upper[i] = names[i].toUpperCase();
+}
+
+upper; // ["THANG", "HAI", "HUNG"]
+```
+
+Tuy nhiên ta có thể bỏ for loop thay vào đó là map() function
+```
+var names = ["thang", "hai", "hung"];
+var upper = names.map(function(transform){
+    return transform.toUpperCase;
+});
+
+upper; // ["THANG", "HAI", "HUNG"]
+```
+
+## Item 20: Sử dụng *call* để gọi đến methods với custom receiver
