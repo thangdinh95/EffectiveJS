@@ -812,7 +812,7 @@ person.fullName.call(person1); // "Thang Dinh"
 
 ```
 var person = {
-  fullName: function(age, gender) {                                                //arguments là age và gender
+  fullName: function(age, gender) {             //arguments là age và gender
       return this.firstName + " " + this.lastName + " " + age + " " + gender;
   }
 }
@@ -825,5 +825,41 @@ var person1 = {
 person.fullName.call(person1, 21, "male"); //"Thang Dinh 21 male"
 ```
 
-## Item 20: Sử dụng *apply* để gọi Functions với các số Arguments khác nhau:
+## Item 21: Sử dụng *apply* để gọi Functions với các số Arguments khác nhau:
 
+- apply() cũng tương tự với call(). Nếu call() là person.fullName sẽ call đến person1 thì với apply(), person1 sẽ apply lên person.fullName
+
+```
+var person = function(){
+   fullName: function() {
+      return this.firstName + " " + this.lastName;
+    }
+}
+
+var person1 = {
+   firstName: "Thang",
+   lastName: "Dinh"
+}
+
+person.fullName.apply(person1); //"Thang Dinh"
+```
+
+- Sự khác nhau giữa *call* và *apply* :
+
+call() sẽ nhận các arguments 1 các riêng biệt
+apply() sẽ nhận các arguments như là một array
+
+```
+var person = {
+  fullName: function(age, gender) {             //arguments là age và gender
+      return this.firstName + " " + this.lastName + " " + age + " " + gender;
+  }
+}
+
+var person1 = {
+  firstName: "Thang",
+  lastName: "Dinh"
+}
+
+person.fullName.apply(person1,["21", "male"]); //"Thang Dinh 21 male"
+```
