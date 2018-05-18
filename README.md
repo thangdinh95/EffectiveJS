@@ -775,6 +775,55 @@ var upper = names.map(function(transform){
 upper; // ["THANG", "HAI", "HUNG"]
 ```
 
-## Item 20: Sử dụng *call* để gọi đến methods với custom receiver
+## Item 20: Sử dụng *call*
 
-alskdf
+- Trong JS, tất cả function đều là object method, mà đã là object thì sẽ đều có prototype hay phương thức của nó. Như ví dụ sau object person sẽ tạo ra 3 prototype là firstName, lastName, và fullName
+
+```
+var person = {
+  firstName: "Thang",
+  lastName: "Dinh",
+  fullName: function() {
+      return this.firstName + " " + this.lastname;
+  }
+}
+
+person.fullName(); //"Thang Dinh"
+```
+
+- Hàm call() được sử dụng để gọi đến một method với các object được truyền vào như là parameters
+
+```
+var person = {
+  fullName: function() {
+      return this.firstName + " " + this.lastName;
+  }
+}
+
+var person1 = {                      //object person1 sẽ được truyền như là 1 biến vào person.fullName()
+  firstName: "Thang",
+  lastName: "Dinh"
+}
+
+person.fullName.call(person1); // "Thang Dinh"
+```
+
+- call() cũng gọi đến method và có thể truyền vào như là arguments
+
+```
+var person = {
+  fullName: function(age, gender) {                                                //arguments là age và gender
+      return this.firstName + " " + this.lastName + " " + age + " " + gender;
+  }
+}
+
+var person1 = {
+  firstName: "Thang",
+  lastName: "Dinh"
+}
+
+person.fullName.call(person1, 21, "male"); //"Thang Dinh 21 male"
+```
+
+## Item 20: Sử dụng *apply* để gọi Functions với các số Arguments khác nhau:
+
