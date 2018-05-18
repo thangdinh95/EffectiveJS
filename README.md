@@ -898,6 +898,6 @@ sayHelloJon(); // "Hello,Good morning Jon Kuperman"
 sayHelloKelly(); // "Hello,Good morning Kelly King"
 ```
 
-## Item 25: Sử dụng *bind* trong Curry Function
+## Item 26: Sử dụng *bind* trong Curry Function
 
 - Curry Function là gì: Curry function là tạo ra 1 function mới từ 1 function cũ bằng cách gán mặc định một số tham số cho function cũ đó.
