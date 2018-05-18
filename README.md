@@ -791,7 +791,7 @@ var person = {
 person.fullName(); //"Thang Dinh"
 ```
 
-- Hàm call() được sử dụng để gọi đến một method với các object được truyền vào như là parameters
+- Phương thức call() được sử dụng để gọi đến một method với các object được truyền vào như là parameters
 
 ```
 var person = {
@@ -827,7 +827,7 @@ person.fullName.call(person1, 21, "male"); //"Thang Dinh 21 male"
 
 ## Item 21: Sử dụng *apply* để gọi Functions với các số Arguments khác nhau:
 
-- apply() cũng tương tự với call(). Nếu call() là person.fullName sẽ call đến person1 thì với apply(), person1 sẽ apply lên person.fullName
+- Phương thức apply() cũng tương tự với call(). Nếu call() là person.fullName sẽ call đến person1 thì với apply(), person1 sẽ apply lên person.fullName
 
 ```
 var person = function(){
@@ -846,9 +846,9 @@ person.fullName.apply(person1); //"Thang Dinh"
 
 - Sự khác nhau giữa *call* và *apply* :
 
-**call()** sẽ nhận các arguments 1 các riêng biệt
+**call()** sẽ nhận các arguments một cách riêng biệt, cách nhau bằng dấu phẩy. 
 
-**apply()** sẽ nhận các arguments như là một array
+**apply()** sẽ nhận các arguments như là một *array*
 
 ```
 var person = {
@@ -864,3 +864,38 @@ var person1 = {
 
 person.fullName.apply(person1,["21", "male"]); //"Thang Dinh 21 male"
 ```
+
+## Item 22: 
+
+## Item 23:
+
+## Item 24:
+
+## Item 25: Sử dụng *bind*
+
+- Bind() hoạt động như thế nào:
+
+Phương thức call và apply là gần giống nhau. Chúng đều gọi hàm trực tiếp. Chỉ khác ở cách truyền tham số vào (với call thì riêng biệt cách nhau bằng dấu phẩy và với apply thì đối số cho bởi mảng array)
+Hàm bind thì hơi khác hơn một chút. Hàm này không gọi hàm trực tiếp mà nó sẽ trả về một hàm mới. Và bạn có thể sử dụng hàm số mới này sau. Về cách truyền tham số vào thì nó giống với hàm call.
+
+```
+var person1 = {
+    firstName: 'Jon', 
+    lastName: 'Kuperman'
+};
+var person2 = {
+    firstName: 'Kelly', 
+    lastName: 'King'
+};
+function say(greeting0, greeting1) {
+    console.log(greeting0 + ',' + greeting1 + ' ' + this.firstName + ' ' + this.lastName);
+}
+
+var sayHelloJon = say.bind(person1, 'Hello', 'Good morning');
+var sayHelloKelly = say.bind(person2, 'Hello', 'Good morning');
+
+sayHelloJon(); // "Hello,Good morning Jon Kuperman"
+sayHelloKelly(); // "Hello,Good morning Kelly King"
+```
+
+
