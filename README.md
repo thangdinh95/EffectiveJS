@@ -846,8 +846,9 @@ person.fullName.apply(person1); //"Thang Dinh"
 
 - Sự khác nhau giữa *call* và *apply* :
 
-call() sẽ nhận các arguments 1 các riêng biệt
-apply() sẽ nhận các arguments như là một array
+**call()** sẽ nhận các arguments 1 các riêng biệt
+
+**apply()** sẽ nhận các arguments như là một array
 
 ```
 var person = {
