@@ -925,3 +925,36 @@ Còn khi click vào button *usingBind* sẽ hiện thị các prototype trong A:
 ## Item 26: Sử dụng *bind* trong Curry Function
 
 - Curry Function là gì: Curry function là tạo ra 1 function mới từ 1 function cũ bằng cách gán mặc định một số tham số cho function cũ đó.
+
+*bind* trong curry function thường được sử dụng khi tạo một functin mà các 
+
+Ví dụ ta có một function như sau. Ta phải tạo ra 2 functions log() và logErrToday() 
+
+```
+function log(level, time, message) {
+  console.log(level + ' - ' + time + ': ' + message);
+}
+
+function logErrToday(message) {
+  log("Error", "Today", message);
+}
+
+logErrToday("Server die."); // Error - Today: Server die.
+```
+
+- Tuy nhiên ta chỉ cần 1 function là log() còn dùng bind để tạo ra 1 function mứi từ log()
+```
+
+function log(level, time, message) {
+  console.log(level + ' - ' + time + ': ' + message);
+}
+
+// Không có this nên set this là null
+// Set mặc định 2 tham số level và time
+var logErrToday = log.bind(null, 'Error', 'Today');
+
+// Hàm này tương ứng với log('Error', 'Today', 'Server die.')
+logErrToday("Server die."); // Error - Today: Server die.
+```
+
+# Item 27: 
