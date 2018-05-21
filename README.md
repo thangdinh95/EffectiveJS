@@ -926,7 +926,7 @@ Còn khi click vào button *usingBind* sẽ hiện thị các prototype trong A:
 
 - Curry Function là gì: Curry function là tạo ra 1 function mới từ 1 function cũ bằng cách gán mặc định một số tham số cho function cũ đó.
 
-*bind* trong curry function thường được sử dụng khi tạo một functin mà các 
+*bind* trong curry function thường được sử dụng khi tạo một function với các arguments 
 
 Ví dụ ta có một function như sau. Ta phải tạo ra 2 functions log() và logErrToday() 
 
@@ -958,3 +958,5 @@ logErrToday("Server die."); // Error - Today: Server die.
 ```
 
 # Item 27: 
+
+
