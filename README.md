@@ -957,6 +957,11 @@ var logErrToday = log.bind(null, 'Error', 'Today');
 logErrToday("Server die."); // Error - Today: Server die.
 ```
 
-# Item 27: 
+# Item 27: Nên sử dụng Closure hơn là String cho Encapsulating Code (hàm bao đóng)
+
+# Item 28: Tránh phụ thuộc vào toString trong functions
+
+
+
 
 
