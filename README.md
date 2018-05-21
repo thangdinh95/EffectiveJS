@@ -897,6 +897,30 @@ var sayHelloKelly = say.bind(person2, 'Hello', 'Good morning');
 sayHelloJon(); // "Hello,Good morning Jon Kuperman"
 sayHelloKelly(); // "Hello,Good morning Kelly King"
 ```
+Ta thấy *this* ở hàm say đã được bind với từng prototype trong person1 và person2. 
+
+Một ví dụ khác khi sử dụng bind với *this*
+
+```
+<input id ="click" type="button" value = "Click"/>
+<input id ="usingBind" type = "button" value = "UsingBind"/>
+<span id = "showInfo"></span>
+
+var user = {
+  name: "A",
+  age: "35",
+  showInfo: function(){
+    $("#showInfo").text("This is" + this.name + "-" + this.age + "years old" )
+  }
+}
+
+$("#click").click(user.showInfo);
+$("#usingBind").click(user.showInfo.bind(user));
+```
+
+Ta sẽ có 2 nút button là *'click'* và *'using Bind'* khi click vào button *click* thì sẽ hiện giá trị là *undefined* vì this ở đây chưa được gán giá trị gì (nếu là user.name mới ra được)
+
+Còn khi click vào button *usingBind* sẽ hiện thị các prototype trong A: "This is A - 35 years old" thì lúc này khi dùng *bind* this sẽ được gán vào với các prototype của user.
 
 ## Item 26: Sử dụng *bind* trong Curry Function
 
