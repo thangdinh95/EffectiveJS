@@ -957,11 +957,47 @@ var logErrToday = log.bind(null, 'Error', 'Today');
 logErrToday("Server die."); // Error - Today: Server die.
 ```
 
-# Item 27: Nên sử dụng Closure hơn là String cho Encapsulating Code (hàm bao đóng)
+## Item 27: Nên sử dụng Closure hơn là String cho Encapsulating Code (hàm bao đóng)
 
-# Item 28: Tránh phụ thuộc vào toString trong functions
+- Khi mà eval có thể pass string để thực thi code thì câu hỏi đặt ra là nên chọn function hay string để chạy code? Câu trả lời là function vì một lý do đơn giản: function có thể closure còn string thì không. 
 
+## Item 28: Tránh phụ thuộc vào toString trong functions
 
+- Nói chung, tránh sử dụng toString trong functions
 
+## Item 29: Tránh sử dụng các thuộc tính Nonstandard Stack
+
+- Tránh nonstandard như arguments.caller và arguments.callee
+
+- Tránh thuộc tính *caller* của function, vì nó không hoàn toàn chứa đủ thông tin về stack
+
+# Chap 4: Objecs and Prototypes 
+
+## Item 30: Sự khác biệt giữa prototype, getPrototypeOf, và __proto__
+
+- Object.getPrototypeOf(Obj) là cơ chế ES5 chuẩn cho việc lấy obj's prototype
+
+- obj.__proto__ là cơ chế non-standard cho việc lấy obj's prototype
+
+- Hãy xét đến ví dụ này 
+
+```
+function User(name, passwordHash) { 
+	this.name = name; 
+	this.passwordHash = passwordHash;
+}
+User.prototype.toString = function() { 
+	return "[User " + this.name + "]";
+};
+User.prototype.checkPassword = function(password) { 
+	return hash(password) === this.passwordHash;
+};
+var u = new User("sfalken",
+                 "0ef33ae791068ec64b502d6cb0191387");
+```
+
+- function User có các prototype mặc định. Ở ví dụ trên thì chúng ta thấy có 2 phương thức đến User.prototype đó là *toString* và *checkPassword*.
+
+Những object được tạo ra bằng cách gọi *new User()* đều có prototype là User.prototype. Nếu muốn thêm trường hay hàm cho các object này, chỉ cần thêm 1 lần vào prototype là xong.
 
 
