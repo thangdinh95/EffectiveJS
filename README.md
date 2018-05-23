@@ -1007,8 +1007,9 @@ Những object được tạo ra bằng cách gọi *new User()* đều có prot
 ## Item 32: Không bao giờ thay đổi __proto__
 - Thuộc tính __proto__ cũng cung cấp một sức mạnh mà Object.getPrototypeOf không có: có thể modiy đường link của một prototype của object. Tuy vậy cần phải tránh điều này vì:
 
-  - Không phải platform nào cũng support việc thay đổi prototype của object.
-  - Performance không tốt
+  - Không phải platform nào cũng support việc thay đổi prototype của object.
+  
+  - Performance không tốt
   
 ## Item 33: 
 
