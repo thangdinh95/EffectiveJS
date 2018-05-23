@@ -1000,4 +1000,14 @@ var u = new User("sfalken",
 
 Những object được tạo ra bằng cách gọi *new User()* đều có prototype là User.prototype. Nếu muốn thêm trường hay hàm cho các object này, chỉ cần thêm 1 lần vào prototype là xong.
 
+## Item 31: Nên sử dụng Object.getPrototypeOf hơn là __proto__
 
+- Object.getPrototypeOf là standard API cho việc lấy prototype của object. Còn không phải tất cả môi trường JS nào cũng support __proto__ mặc dù mục đích của 2 phương thức này là hoàn toàn giống nhau.
+
+## Item 32: Không bao giờ thay đổi __proto__
+- Thuộc tính __proto__ cũng cung cấp một sức mạnh mà Object.getPrototypeOf không có: có thể modiy đường link của một prototype của object. Tuy vậy cần phải tránh điều này vì:
+
+  - Không phải platform nào cũng support việc thay đổi prototype của object.
+  - Performance không tốt
+  
+## Item 33 
