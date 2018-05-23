@@ -1010,4 +1010,6 @@ Những object được tạo ra bằng cách gọi *new User()* đều có prot
   - Không phải platform nào cũng support việc thay đổi prototype của object.
   - Performance không tốt
   
-## Item 33 
+## Item 33: 
+
+
