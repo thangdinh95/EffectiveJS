@@ -1013,4 +1013,6 @@ Những object được tạo ra bằng cách gọi *new User()* đều có prot
   
 ## Item 33: 
 
+## Item 34:
+
 
