@@ -1013,6 +1013,38 @@ Những object được tạo ra bằng cách gọi *new User()* đều có prot
   
 ## Item 33: 
 
-## Item 34:
+## Item 34: Lưu Methods vào Prototypes
 
 
+- Ví dụ ta có một function User với 2 tham số truyền vào là name và password:
+
+```
+function User(name, passwordHash) { 
+	this.name = name; 
+	this.passwordHash = passwordHash; 
+	this.toString = function() {
+		return "[User " + this.name + "]"; 
+	};
+	this.checkPassword = function(password) {
+		return hash(password) === this.passwordHash;
+	}; 
+}
+```
+
+- Function này chạy bình thường, nhưng nếu khi chúng ta tạo ra nhiều instance cho User như user1, user2, user3:
+
+```
+var u1 = new User(/* ... */); 
+var u2 = new User(/* ... */); 
+var u3 = new User(/* ... */);
+```
+
+- Ở mỗi u1, u2, u3 chúng ta có thể tạo ra các objects khác nhau và các prototype object đó. 
+
+```
+var u1 = new User(name, passwordHash) {
+	//do somthing...
+}
+```
+
+- Tuy nhiên ta cũng có thể tạo checkPassword và toString một lần và share chúng với mọi instances qua các prototype
