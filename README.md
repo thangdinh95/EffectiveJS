@@ -1031,7 +1031,7 @@ function User(name, passwordHash) {
 }
 ```
 
-- Function này chạy bình thường, nhưng nếu khi chúng ta tạo ra nhiều instance cho User như user1, user2, user3:
+- Function này chạy bình thường, nhưng nếu khi chúng ta tạo ra nhiều instance cho User như user1, user2, user3, sẽ có một số khác biệt đáng lưu ý:
 
 ```
 var u1 = new User(/* ... */); 
@@ -1039,12 +1039,15 @@ var u2 = new User(/* ... */);
 var u3 = new User(/* ... */);
 ```
 
-- Ở mỗi u1, u2, u3 chúng ta có thể tạo ra các objects khác nhau và các prototype object đó. 
+Thay vì cùng chia sẻ toString và checkPassword thông qua prototype, mỗi instance lại chứa những method => tổng là có 6 functions
+
+Ở mỗi u1, u2, u3 chúng ta có thể tạo ra các objects khác nhau và các prototype object đó. 
 
 ```
-var u1 = new User(name, passwordHash) {
-	//do somthing...
-}
+var u1 = new User(name, passwordHash)  //instance object
+var u2 = new User(name, passwordHash) 
+var u3 = new User(name, passwordHash) 
 ```
 
-- Tuy nhiên ta cũng có thể tạo checkPassword và toString một lần và share chúng với mọi instances qua các prototype
+- Tuy nhiên ta cũng có thể tạo checkPassword và toString một lần và share chúng với mọi instances qua các prototype 
+Việc lưu methods vào prototype khiến cho chúng available đến mọi instance mà ko cần copy lại function ở mỗi instance object. 
