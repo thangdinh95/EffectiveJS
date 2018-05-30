@@ -1051,3 +1051,22 @@ var u3 = new User(name, passwordHash)
 
 - Tuy nhiên ta cũng có thể tạo checkPassword và toString một lần và share chúng với mọi instances qua các prototype 
 Việc lưu methods vào prototype khiến cho chúng available đến mọi instance mà ko cần copy lại function ở mỗi instance object. 
+
+## Item 35: Sử dụng Closure để lưu trữ private data
+
+- Thay vì store data như là property của một object, chúng ta store nó như là biến trong constructor và biến cái method của một object thành clousure. 
+
+```
+function User(name, passwordHash) { 			//hàm constructor
+	this.toString = function() {
+		return "[User " + name + "]";           // name lúc này là 1 var
+	};
+	this.checkPassword = function(password) { 
+		return hash(password) === passwordHash; //passwordHash lúc này là 1 var
+	}; 
+}
+```
+
+Phương thức toString và checkPassword ở đây refer đến name và passwordHash như là 1 biến thay vì là một *properties* của *this*.
+
+## Item 36: 
